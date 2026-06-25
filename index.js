@@ -29,8 +29,7 @@ const qs = require("querystring");
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "X-Requested-With": "XMLHttpRequest",
             "Referer": "https://ticket.melon.com/",
-            "Origin": "https://ticket.melon.com",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+            "Origin": "https://ticket.melon.com"
         },
         data: qs.stringify({
             prodId: productId,
