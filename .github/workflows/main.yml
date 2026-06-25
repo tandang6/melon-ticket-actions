@@ -10,9 +10,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          repository: tandang6/melon
+          repository: tandang6/melon-ticket-actions
       - name: Run Monitor
-        uses: tandang6/melon@main
+        uses: tandang6/melon-ticket-actions@main
         with:
           product-id: '213346'
           schedule-id: '100001'
