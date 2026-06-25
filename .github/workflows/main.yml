@@ -9,7 +9,7 @@ jobs:
       - name: Prepare
         run: npm ci
       - name: Lint
-        uses: mooyoul/tslint-actions@master
+        uses: tandang6/melon-ticket-actions@tandang6-patch-1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pattern: '*.ts'
