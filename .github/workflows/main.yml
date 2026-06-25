@@ -1,22 +1,21 @@
-name: workflow
-on: push
+name: Melon Ticket Monitor
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 jobs:
-  job:
+  monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v1
-      - name: Prepare
-        run: npm ci
-      - name: Lint
-        uses: mooyoul/tslint-actions@master
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pattern: '*.ts'
-      - name: Build
-        run: npm run build
-      - name: Publish
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: npx semantic-release
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          repository: tandang6/melon
+      - name: Run Monitor
+        uses: tandang6/melon@main
+        with:
+          product-id: '213346'
+          schedule-id: '100001'
+          seat-id: '10002,10003,10004'
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '티켓 취소표가 발견되었습니다!'
