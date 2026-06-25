@@ -5,23 +5,25 @@ inputs:
   product-id:
     description: 'Product ID of Target Ticket'
     required: true
+    default: '213346'
   schedule-id:
     description: 'Schedule ID of Target Ticket'
     required: true
+    default: '100001'
   seat-id:
     description: 'Seat Id of Target Ticket'
     required: true
+    default: '10002,10003,10004'
   slack-incoming-webhook-url:
     description: 'URL of Slack Incoming Webhook'
     required: true
   message:
     description: 'Message'
     required: false
-    default: '티켓사세요'
+    default: '티켓 취소표가 발견되었습니다!'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-
 branding:
   icon: 'music'
   color: 'green'
